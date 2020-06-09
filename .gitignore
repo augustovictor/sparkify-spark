@@ -1,0 +1,8 @@
+venv
+*.pem
+.ipynb_checkpoints
+*.ipynb
+foxyproxy-settings.xml
+dl.cfg
+.vscode
+*.parquet
