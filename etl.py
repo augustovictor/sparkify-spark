@@ -21,6 +21,11 @@ S3_OUTPUT_PATH ="s3a://victor-nano-sparkify-raw-data/sparkify-parquet"
 
 
 def create_spark_session():
+    """
+    Creates spark session
+    Configures spark session
+    """
+
     spark = SparkSession \
         .builder \
         .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:2.7.0") \
@@ -32,6 +37,13 @@ def create_spark_session():
 
 
 def process_song_data(spark, input_data, output_data):
+    """
+    Extracts songs data from song json files
+    Extracts artists data from song json files
+    Transforms tables with new columns
+    Loads partitioned data into S3
+    """
+
     # get filepath to song data file
     songs_path = f"{input_data}/{S3_PATH_SONGS}"
     
@@ -55,6 +67,13 @@ def process_song_data(spark, input_data, output_data):
 
 
 def process_log_data(spark, input_data, output_data):
+    """
+    Extracts users data from log json files
+    Transforms tables with new columns
+    Transforms new songplays_table
+    Loads partitioned data into S3
+    """
+
     # get filepath to log data file
     logs_path = f"{input_data}/{S3_PATH_LOGS}"
 
@@ -120,9 +139,17 @@ def process_log_data(spark, input_data, output_data):
 
 @udf(TimestampType())
 def get_datetime_from(long_value):
+    """
+    Converts timestamp of type Long to datetime
+    """
+
     return datetime.fromtimestamp(long_value/1000.0)
 
 def main():
+    """
+    Orchestrates the ETL
+    """
+
     spark = create_spark_session()
     input_data = "s3a://udacity-dend"
     output_data = S3_OUTPUT_PATH
