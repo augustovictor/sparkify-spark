@@ -44,7 +44,7 @@ environmental variables, and call that script at the time EMR launches
 1. Create service role EMR_DefaultRole with policy AmazonElasticMapReduceRole
 1. Execute EMR creation script
 1. Change emr SG so the cluster it accepts ssh requests (ElasticMapReduce-master port 22)
-	- `ssh -i ~/<KEY_NAME>.pem hadoop@<EC2_MASTER_PUBLIC_IP.compute-1.amazonaws.com`
+	- `ssh -i ~/<KEY_NAME>.pem hadoop@<EC2_MASTER_PUBLIC_IP>.compute-1.amazonaws.com`
 1. Change emr ec2 SG so you can login ec2 instances (ElasticMapReduce-slave)
 1. Configure [FoxyProxy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html) to be able to view websites hosted on master node (jupyter notebook or sparkUi)
 1. Upload data to s3
@@ -75,6 +75,7 @@ environmental variables, and call that script at the time EMR launches
 - [Best practices for tuning Spark applications](https://content-dsxlocal.mybluemix.net/docs/content/SSAS34_current/local-dev/best-practices-tuning_spark_application.html)
 - [Apache Spark Cluster Setup](https://www.tutorialkart.com/apache-spark/how-to-setup-an-apache-spark-cluster)
 - [Spark date and time functions](https://sparkbyexamples.com/spark/spark-sql-date-and-time-functions/)
+- [Set python version to 3.x on spark cluster](https://aws.amazon.com/premiumsupport/knowledge-center/emr-pyspark-python-3x/)
 
 ## Gotchas
 
