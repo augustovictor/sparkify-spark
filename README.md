@@ -65,10 +65,6 @@ environmental variables, and call that script at the time EMR launches
 - [Enhanced s3 protocol while loading from/to s3](https://sparkbyexamples.com/spark/write-read-csv-file-from-s3-into-dataframe/)
 - (Spark aggregations)(https://mungingdata.com/apache-spark/aggregations/)
 - [Pyspark sql types](https://spark.apache.org/docs/2.1.2/api/python/_modules/pyspark/sql/types.html)
-
-## Gotchas
-
-- Hi @NamitaP I was having the same issue, saving the data back to S3 was taking too long. Add this your main, spark.conf.set("mapreduce.fileoutputcommitter.algorithm.version", "2"), after you instantiate your Spark session. It will make it save much faster. You can read a bit more here: https://intellipaat.com/community/14967/extremely-slow-s3-write-times-from-emr-spark and https://kb.databricks.com/data/append-slow-with-spark-2.0.0.html
 - [What are the things to consider before creating a Spark cluster for production?](https://www.quora.comWhat-are-the-things-to-consider-before-creating-a-Spark-cluster-for-production)
 - [Apache Spark – Best Practices](https://www.bi4all.pt/en/news/en-blog/apache-spark-best-practices)
 - [Tips and Best Practices to Take Advantage of Spark 2.x](https://mapr.com/blog/tips-and-best-practices-to-take-advantage-of-spark-2-x)
@@ -77,3 +73,8 @@ environmental variables, and call that script at the time EMR launches
 - [Spark performance tuning from the trenches](https://medium.com/teads-engineering/spark-performance-tuning-from-the-trenches-7cbde521cf60)
 - [Best practices for tuning Spark applications](https://content-dsxlocal.mybluemix.net/docs/content/SSAS34_current/local-dev/best-practices-tuning_spark_application.html)
 - [Apache Spark Cluster Setup](https://www.tutorialkart.com/apache-spark/how-to-setup-an-apache-spark-cluster)
+- [Spark date and time functions](https://sparkbyexamples.com/spark/spark-sql-date-and-time-functions/)
+
+## Gotchas
+
+- Hi @NamitaP I was having the same issue, saving the data back to S3 was taking too long. Add this your main, spark.conf.set("mapreduce.fileoutputcommitter.algorithm.version", "2"), after you instantiate your Spark session. It will make it save much faster. You can read a bit more here: https://intellipaat.com/community/14967/extremely-slow-s3-write-times-from-emr-spark and https://kb.databricks.com/data/append-slow-with-spark-2.0.0.html
