@@ -27,19 +27,18 @@ environmental variables, and call that script at the time EMR launches
 - `--instance-type`: Specify the type of instances you want to use. Detailed list can be accessed here, but find the one that can fit your data and your budget.
 - `--log-uri`: S3 location to store your EMR logs in. This log can store EMR metrics and also the metrics/logs for submission of your code.
 
-### TODO
-- Execute spark queries to answer business questions using the approach schema-on-read;
-- Consider creating views for further processing or analytics;
-- Discuss the difference of processing data on batch and streaming;
-- Use `--auto-terminate` to make processing a one-shot processing;
 
-#### Steps (Jupyter Notebook)
+#### Instructions when running from udacity workspace
+1. Open terminal session
+1. Execute: `python3 etl.py`
+
+#### Intructions when running on Jupyter Notebook
 1. Create a cluster with emr version <= 5.29
 	- Remember a cluster should have spark, hadoop, YARN, zeppelin;
 	- [Aws says  Hadoop, Spark, and Livy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-working-with.html)
 1. The aws service role should be `EMR_Notebooks_DefaultRole` or `create default role` if it does not exist yet;
 
-#### Steps (SSH)
+#### Instructions when running from emr cluster's master node (SSH)
 1. Generate key pair and set file permission: `chmod 400 <KEY_NAME>.pem`;
 1. Create InstanceProfile EMR_EC2_DefaultRole with policy (AmazonElasticMapReduceforEC2Role)
 1. Create service role EMR_DefaultRole with policy AmazonElasticMapReduceRole
@@ -57,6 +56,8 @@ environmental variables, and call that script at the time EMR launches
 	- have `spark.stop` at the end of the script
 1. Check spark ui to analyze execution
 1. Save results back to s3
+
+---
 
 ## References
 - [Udf's return types](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-pyspark-extensions-types.html)
